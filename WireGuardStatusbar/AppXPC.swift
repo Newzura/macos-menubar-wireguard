@@ -6,7 +6,6 @@ class AppXPC {
 
     func remoteObjectProxy() -> HelperXPC {
         if connection == nil {
-            // Doit être identique au machServiceName du main.swift
             connection = NSXPCConnection(machServiceName: "WireGuardStatusbarHelper", options: .privileged)
             connection?.remoteObjectInterface = NSXPCInterface(with: HelperXPC.self)
             connection?.resume()
